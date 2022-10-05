@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:fooderlich/screens/recipes_screen.dart';
 import 'components/components.dart';
 import 'models/explore_recipe.dart';
 import 'config.dart';
+import 'screens/explore_screen.dart';
+import 'screens/recipes_screen.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -14,22 +17,8 @@ class _HomeState extends State<Home> {
   int _selectedIndex = 0;
 
   static List<Widget> pages = <Widget>[
-    Card1(
-      recipe: ExploreRecipe(
-          authorName: 'Ray Wanderlich',
-          title: 'The Art of Dough',
-          subtitle: 'Editor\'s Choice',
-          message: 'Learn to make perfect bread',
-          backgroundImage: 'assets/magazine_pics/card_bread.jpg'),
-    ),
-    Card2(
-        recipe: ExploreRecipe(
-            authorName: 'Mike Katz',
-            role: 'Smoothie Connoisseur',
-            profileImage: 'assets/profile_pics/person_katz.jpeg',
-            title: 'Recipe',
-            subtitle: 'Smoothies',
-            backgroundImage: 'assets/magazine_pics/mag2.png')),
+    ExploreScreen(),
+    RecipesScreen(),
     Card3(
         recipe: ExploreRecipe(
             title: 'Vegan Trends',
@@ -78,15 +67,15 @@ class _HomeState extends State<Home> {
           items: <BottomNavigationBarItem>[
             const BottomNavigationBarItem(
               icon: Icon(Icons.card_giftcard),
-              label: 'Card1',
+              label: 'Explore',
             ),
             const BottomNavigationBarItem(
               icon: Icon(Icons.card_giftcard),
-              label: 'Card2',
+              label: 'Recipes',
             ),
             const BottomNavigationBarItem(
               icon: Icon(Icons.card_giftcard),
-              label: 'Card3',
+              label: 'To Buy',
             ),
           ]),
     );

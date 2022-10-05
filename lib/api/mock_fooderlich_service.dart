@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 import '../models/models.dart';
 
-class MockFooderlichServices {
+class MockFooderlichService {
   Future<ExploreData> getExploreData() async {
     final todayRecipes = await _getTodayRecipes();
     final friendPost = await _getFriendFeed();

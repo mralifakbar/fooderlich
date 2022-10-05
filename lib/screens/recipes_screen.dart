@@ -9,7 +9,7 @@ class RecipesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return FutureBuilder(
         future: exploreService.getRecipes(),
-        builder: (context, snapshot) {
+        builder: (context, AsyncSnapshot snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             return RecipesGridView(recipes: snapshot.data);
           } else {
