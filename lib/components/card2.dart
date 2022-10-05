@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'author_card.dart';
+import '../models/models.dart';
 import '../fooderlich_theme.dart';
 import '../config.dart';
 
 class Card2 extends StatefulWidget {
   // final ValueChanged<Icon> update;
-  const Card2({Key? key}) : super(key: key);
+  final ExploreRecipe recipe;
+  const Card2({Key? key, required this.recipe}) : super(key: key);
 
   @override
   State<Card2> createState() => _Card2State();
@@ -28,16 +30,18 @@ class _Card2State extends State<Card2> {
         },
         child: Container(
           constraints: const BoxConstraints.expand(width: 350, height: 450),
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage('assets/mag5.png'), fit: BoxFit.cover),
+                  image: AssetImage(widget.recipe.backgroundImage.toString()),
+                  fit: BoxFit.cover),
               borderRadius: BorderRadius.all(Radius.circular(10.0))),
           child: Column(
             children: [
               AuthorCard(
-                authorName: "Mike Catz",
-                title: "Smoothie Connoissur",
-                imageProvider: AssetImage("assets/author_katz.jpeg"),
+                authorName: widget.recipe.authorName.toString(),
+                title: widget.recipe.role.toString(),
+                imageProvider:
+                    AssetImage(widget.recipe.profileImage.toString()),
               ),
               Expanded(
                   child: GestureDetector(
@@ -51,7 +55,7 @@ class _Card2State extends State<Card2> {
                       bottom: 16,
                       right: 16,
                       child: Text(
-                        'Recipe',
+                        widget.recipe.title.toString(),
                         style: FooderlichTheme.lightTextTheme.headline1,
                       ),
                     ),
@@ -61,7 +65,7 @@ class _Card2State extends State<Card2> {
                         child: RotatedBox(
                           quarterTurns: 3,
                           child: Text(
-                            'Smoothies',
+                            widget.recipe.subtitle.toString(),
                             style: FooderlichTheme.lightTextTheme.headline1,
                           ),
                         ))

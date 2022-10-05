@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'components/card1.dart';
-import 'components/card2.dart';
-import 'components/card3.dart';
+import 'components/components.dart';
+import 'models/explore_recipe.dart';
 import 'config.dart';
 
 class Home extends StatefulWidget {
@@ -15,9 +14,38 @@ class _HomeState extends State<Home> {
   int _selectedIndex = 0;
 
   static List<Widget> pages = <Widget>[
-    const Card1(),
-    const Card2(),
-    const Card3(),
+    Card1(
+      recipe: ExploreRecipe(
+          authorName: 'Ray Wanderlich',
+          title: 'The Art of Dough',
+          subtitle: 'Editor\'s Choice',
+          message: 'Learn to make perfect bread',
+          backgroundImage: 'assets/magazine_pics/card_bread.jpg'),
+    ),
+    Card2(
+        recipe: ExploreRecipe(
+            authorName: 'Mike Katz',
+            role: 'Smoothie Connoisseur',
+            profileImage: 'assets/profile_pics/person_katz.jpeg',
+            title: 'Recipe',
+            subtitle: 'Smoothies',
+            backgroundImage: 'assets/magazine_pics/mag2.png')),
+    Card3(
+        recipe: ExploreRecipe(
+            title: 'Vegan Trends',
+            tags: [
+              'Healthy',
+              'Vegan',
+              'Carrots',
+              'Greens',
+              'Wheat',
+              'Pescetarian',
+              'Mint',
+              'Lemongrass',
+              'Salad',
+              'Water'
+            ],
+            backgroundImage: 'assets/magazine_pics/mag3.png')),
   ];
 
   void _onItemTapped(int index) {
