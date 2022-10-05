@@ -4,7 +4,9 @@ import '../components/components.dart';
 
 class RecipesScreen extends StatelessWidget {
   final exploreService = MockFooderlichService();
+
   RecipesScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
