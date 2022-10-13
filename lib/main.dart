@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fooderlich/config.dart';
+import 'package:fooderlich/models/grocery_manager.dart';
+import 'package:fooderlich/models/tab_manager.dart';
+import 'package:provider/provider.dart';
 import 'fooderlich_theme.dart';
 import 'home.dart';
 
@@ -28,7 +31,14 @@ class _FooderlichState extends State<Fooderlich> {
       debugShowCheckedModeBanner: false,
       title: 'Fooderlich',
       theme: currentTheme.currentTheme(),
-      home: Home(),
+      home: MultiProvider(
+        providers: [
+          ChangeNotifierProvider<TabManager>(create: (context) => TabManager()),
+          ChangeNotifierProvider<GroceryManager>(
+              create: (context) => GroceryManager()),
+        ],
+        child: const Home(),
+      ),
     );
   }
 }

@@ -6,6 +6,8 @@ import 'config.dart';
 import 'screens/explore_screen.dart';
 import 'screens/recipes_screen.dart';
 import 'screens/grocery_screen.dart';
+import 'package:provider/provider.dart';
+import 'models/models.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -38,12 +40,12 @@ class _HomeState extends State<Home> {
           style: Theme.of(context).textTheme.headline6,
         ),
       ),
-      floatingActionButton: FloatingActionButton.extended(
-          onPressed: () {
-            currentTheme.switchTheme();
-          },
-          label: Text('Ganti Tema'),
-          icon: Icon(Icons.brightness_high)),
+      // floatingActionButton: FloatingActionButton.extended(
+      //     onPressed: () {
+      //       currentTheme.switchTheme();
+      //     },
+      //     label: Text('Ganti Tema'),
+      //     icon: Icon(Icons.brightness_high)),
       body: pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
           selectedItemColor:
